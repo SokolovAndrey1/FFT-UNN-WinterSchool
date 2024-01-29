@@ -75,7 +75,7 @@ jobs:
       - name: Build
         run: |
             export PATH="/opt/Xuantie-900-gcc-linux-5.10.4-glibc-x86_64-V2.8.0/bin:$PATH"
-            cmake CMakeLists.txt ${{ matrix.opts }} -DENABLE_TEST=ON -DENABLE_BENCH=ON -DCMAKE_C_COMPILER=${{ matrix.triple }}-gcc -DCMAKE_CXX_COMPILER=${{ matrix.triple }}-g++ -DBUILD_TYPE=Release -DBUILD_STATIC=ON -B_build
+            cmake CMakeLists.txt ${{ matrix.opts }} -DENABLE_TEST=ON -DENABLE_BENCH=ON -DENABLE_EXAMPLES=ON -DCMAKE_C_COMPILER=${{ matrix.triple }}-gcc -DCMAKE_CXX_COMPILER=${{ matrix.triple }}-g++ -DBUILD_TYPE=Release -DBUILD_STATIC=ON -B_build
             cmake --build _build
 
       - name: Test

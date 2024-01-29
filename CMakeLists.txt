@@ -7,7 +7,8 @@ set(GTEST_GIT_REPO_PATH "${CMAKE_SOURCE_DIR}/3rd-party/gtest" CACHE STRING "Path
 set(CMAKE_VERBOSE_MAKEFILE ON)
 
 option(ENABLE_TEST "Build test" OFF)
-option(ENABLE_BENCH "Build benchmarks" OFF)
+option(ENABLE_BENCH "Build benchmarks" ON)
+option(ENABLE_EXAMPLES "Build examples" ON)
 option(TARGET_ARCH "Target architecture" RISCV_GENERIC)
 option(BUILD_STATIC "Build static" ON)
 option(BUILD_TYPE "Build type" Release)
@@ -18,6 +19,13 @@ include(cmake/common_configuration.cmake)
 # Build library
 #
 add_subdirectory("${CMAKE_SOURCE_DIR}/lib")
+
+#
+# Build examples
+#
+if(ENABLE_EXAMPLES)
+    add_subdirectory("${CMAKE_SOURCE_DIR}/examples")
+endif()
 
 #
 # Build tests

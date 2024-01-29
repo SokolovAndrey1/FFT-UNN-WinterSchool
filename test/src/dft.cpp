@@ -2,7 +2,7 @@
 
 // Change to 1 to test function
 #define DFT2_IMPLEMENTED 1
-#define DFT4_IMPLEMENTED 1
+#define DFT4_IMPLEMENTED 0
 #define DFT6_IMPLEMENTED 1
 #define DFT8_IMPLEMENTED 0
 #define DFT16_IMPLEMENTED 0
