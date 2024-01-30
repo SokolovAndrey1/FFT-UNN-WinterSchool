@@ -10,7 +10,7 @@ INTERFACE
 )
 
 if(BUILD_STATIC)
-    target_compile_options(BaseConfiguration INTERFACE --static)
+    target_link_options(BaseConfiguration INTERFACE -static)
 endif()
 
 if("${TARGET_ARCH}" STREQUAL "RISCV_GENERIC")

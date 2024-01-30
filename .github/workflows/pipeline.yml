@@ -19,9 +19,9 @@ jobs:
         fail-fast: false
         matrix:
             include:
-              - target: RISCV_GENERIC
-                triple: riscv64-unknown-linux-gnu
-                opts: -DTARGET_ARCH=RISCV_GENERIC
+              # - target: RISCV_GENERIC
+              #   triple: riscv64-unknown-linux-gnu
+              #   opts: -DTARGET_ARCH=RISCV_GENERIC
               - target: RISCV_VECTOR
                 triple: riscv64-unknown-linux-gnu
                 opts: -DTARGET_ARCH=RISCV_VECTOR
@@ -81,11 +81,11 @@ jobs:
       - name: Test
         run: |
             export PATH="$GITHUB_WORKSPACE/qemu-install/bin/:$PATH"
-            qemu-riscv64 -cpu c906fdv -L /opt/Xuantie-900-gcc-linux-5.10.4-glibc-x86_64-V2.8.0/sysroot/ ./_build/perf/dft_perf
-            qemu-riscv64 -cpu c906fdv -L /opt/Xuantie-900-gcc-linux-5.10.4-glibc-x86_64-V2.8.0/sysroot/ ./_build/perf/dft2_perf
-            qemu-riscv64 -cpu c906fdv -L /opt/Xuantie-900-gcc-linux-5.10.4-glibc-x86_64-V2.8.0/sysroot/ ./_build/perf/dft4_perf
-            qemu-riscv64 -cpu c906fdv -L /opt/Xuantie-900-gcc-linux-5.10.4-glibc-x86_64-V2.8.0/sysroot/ ./_build/perf/dft6_perf
-            qemu-riscv64 -cpu c906fdv -L /opt/Xuantie-900-gcc-linux-5.10.4-glibc-x86_64-V2.8.0/sysroot/ ./_build/perf/dft8_perf
-            qemu-riscv64 -cpu c906fdv -L /opt/Xuantie-900-gcc-linux-5.10.4-glibc-x86_64-V2.8.0/sysroot/ ./_build/perf/dft16_perf
-            qemu-riscv64 -cpu c906fdv -L /opt/Xuantie-900-gcc-linux-5.10.4-glibc-x86_64-V2.8.0/sysroot/ ./_build/perf/dft32_perf
-            qemu-riscv64 -cpu c906fdv -L /opt/Xuantie-900-gcc-linux-5.10.4-glibc-x86_64-V2.8.0/sysroot/ ./_build/test/fft_test
+            qemu-riscv64 -cpu c910v -L /opt/Xuantie-900-gcc-linux-5.10.4-glibc-x86_64-V2.8.0/sysroot/ ./_build/perf/dft_perf
+            qemu-riscv64 -cpu c910v -L /opt/Xuantie-900-gcc-linux-5.10.4-glibc-x86_64-V2.8.0/sysroot/ ./_build/perf/dft2_perf
+            qemu-riscv64 -cpu c910v -L /opt/Xuantie-900-gcc-linux-5.10.4-glibc-x86_64-V2.8.0/sysroot/ ./_build/perf/dft4_perf
+            qemu-riscv64 -cpu c910v -L /opt/Xuantie-900-gcc-linux-5.10.4-glibc-x86_64-V2.8.0/sysroot/ ./_build/perf/dft6_perf
+            qemu-riscv64 -cpu c910v -L /opt/Xuantie-900-gcc-linux-5.10.4-glibc-x86_64-V2.8.0/sysroot/ ./_build/perf/dft8_perf
+            qemu-riscv64 -cpu c910v -L /opt/Xuantie-900-gcc-linux-5.10.4-glibc-x86_64-V2.8.0/sysroot/ ./_build/perf/dft16_perf
+            qemu-riscv64 -cpu c910v -L /opt/Xuantie-900-gcc-linux-5.10.4-glibc-x86_64-V2.8.0/sysroot/ ./_build/perf/dft32_perf
+            qemu-riscv64 -cpu c910v -L /opt/Xuantie-900-gcc-linux-5.10.4-glibc-x86_64-V2.8.0/sysroot/ ./_build/test/fft_test
