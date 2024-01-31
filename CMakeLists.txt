@@ -11,6 +11,7 @@ option(ENABLE_BENCH "Build benchmarks" ON)
 option(ENABLE_EXAMPLES "Build examples" ON)
 option(TARGET_ARCH "Target architecture" RISCV_GENERIC)
 option(BUILD_STATIC "Build static" ON)
+option(USE_OPENMP "Build with -fopenmp" ON)
 option(BUILD_TYPE "Build type" Release)
 
 include(cmake/common_configuration.cmake)

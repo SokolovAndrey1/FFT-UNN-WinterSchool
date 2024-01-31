@@ -13,6 +13,12 @@ if(BUILD_STATIC)
     target_link_options(BaseConfiguration INTERFACE -static)
 endif()
 
+if(USE_OPENMP)
+    target_compile_options(BaseConfiguration INTERFACE -fopenmp)
+    target_link_options(BaseConfiguration INTERFACE -fopenmp)
+    target_compile_definitions(BaseConfiguration INTERFACE -DUSE_OPENMP)
+endif()
+
 if("${TARGET_ARCH}" STREQUAL "RISCV_GENERIC")
     target_compile_options(BaseConfiguration INTERFACE -march=rv64gc)
     target_compile_definitions(BaseConfiguration INTERFACE -DRISCV_GENERIC)

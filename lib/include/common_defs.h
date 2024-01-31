@@ -1,6 +1,10 @@
 #ifndef COMMON_H
 #define COMMON_H
 
+#ifdef USE_OPENMP
+#include <omp.h>
+#endif
+
 #include <math.h>
 #include <stdlib.h>
 
