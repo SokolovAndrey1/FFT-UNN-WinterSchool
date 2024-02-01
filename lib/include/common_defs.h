@@ -6,17 +6,15 @@
 #endif
 
 #include <math.h>
+#include <stdint.h>
 #include <stdlib.h>
 
-#define YP_2PI 6.28
+#define OWN_2PI 0x1.921fb54442d18p+2
 
+// Complex float data type
 typedef struct {
     float re;
     float im;
-} T32fc;
-
-typedef float T32f;
-
-typedef unsigned int T32u;
+} cfloat32_t;
 
 #endif // COMMON_H

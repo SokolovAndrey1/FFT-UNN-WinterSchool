@@ -3,13 +3,12 @@
 
 #include "common_defs.h"
 
-void refDftFwd(const T32fc* x, T32fc* y, const int n);
+extern void refDftFwd(const cfloat32_t* pSrc, cfloat32_t* pDst, const int len);
 
-void dft2Fwd(const T32fc *x, T32fc *y);
-void dft4Fwd(const T32fc *x, T32fc *y);
-void dft6Fwd(const T32fc *x, T32fc *y);
-void dft8Fwd(const T32fc *x, T32fc *y);
-void dft16Fwd(const T32fc *x, T32fc *y);
-void dft32Fwd(const T32fc *x, T32fc *y);
+extern void dft2Fwd (const cfloat32_t *pSrc, cfloat32_t *pDst);
+extern void dft4Fwd (const cfloat32_t *pSrc, cfloat32_t *pDst);
+extern void dft8Fwd (const cfloat32_t *pSrc, cfloat32_t *pDst);
+extern void dft16Fwd(const cfloat32_t *pSrc, cfloat32_t *pDst);
+extern void dft32Fwd(const cfloat32_t *pSrc, cfloat32_t *pDst);
 
 #endif // DFT_H

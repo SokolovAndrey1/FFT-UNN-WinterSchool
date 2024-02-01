@@ -3,17 +3,18 @@
 // Change to 1 to test function
 #define DFT2_IMPLEMENTED 1
 #define DFT4_IMPLEMENTED 0
-#define DFT6_IMPLEMENTED 1
 #define DFT8_IMPLEMENTED 0
 #define DFT16_IMPLEMENTED 0
 #define DFT32_IMPLEMENTED 0
 
+#define TEST_2PI (float)0x1.921fb54442d18p+2
+
 class Dft : public ::testing::Test
 {
 public:
-    std::vector<T32fc> source;
-    std::vector<T32fc> reference;
-    std::vector<T32fc> result;
+    std::vector<cfloat32_t> source;
+    std::vector<cfloat32_t> reference;
+    std::vector<cfloat32_t> result;
 
     void prepareData(int length) {
         source.resize(length);
@@ -25,8 +26,14 @@ public:
         std::uniform_real_distribution<float> dist(0.0f, 1.0f);
 
         for (int idx = 0; idx < length; ++idx) {
-            source[idx].re = dist(gen);
-            source[idx].im = dist(gen);
+            float phase = TEST_2PI * dist(gen);
+            // signal(x, ф) = e^(ix + ф) + e^(3ix + ф) + e^(7ix + ф)
+            source[idx].re = cosf(1.0f * TEST_2PI * (float)idx / (float)(4 * length) + phase)
+                           + cosf(3.0f * TEST_2PI * (float)idx / (float)(4 * length) + phase)
+                           + cosf(7.0f * TEST_2PI * (float)idx / (float)(4 * length) + phase);
+            source[idx].im =-sinf(1.0f * TEST_2PI * (float)idx / (float)(4 * length) + phase)
+                           + sinf(3.0f * TEST_2PI * (float)idx / (float)(4 * length) + phase)
+                           + sinf(7.0f * TEST_2PI * (float)idx / (float)(4 * length) + phase);
 
             reference[idx].re = 0.0f;
             reference[idx].im = 0.0f;
@@ -63,22 +70,6 @@ TEST_F(Dft, test_dft4)
     refDftFwd(source.data(), reference.data(), length);
 
     dft4Fwd(source.data(), result.data());
-
-    EXPECT_NEAR_VECTOR_VECTOR_COMPLEX(result, reference, threshold);
-}
-#endif
-
-#if DFT6_IMPLEMENTED == 1
-TEST_F(Dft, test_dft6)
-{
-    static constexpr int length = 6;
-    static constexpr float threshold = 1e-1f;
-
-    Dft::prepareData(length);
-
-    refDftFwd(source.data(), reference.data(), length);
-
-    dft6Fwd(source.data(), result.data());
 
     EXPECT_NEAR_VECTOR_VECTOR_COMPLEX(result, reference, threshold);
 }

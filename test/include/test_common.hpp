@@ -7,8 +7,9 @@ extern "C" {
 
 #include "gtest/gtest.h"
 
-#include <vector>
+#include <cmath>
 #include <random>
+#include <vector>
 
 #define EXPECT_NEAR_VECTOR_VECTOR_COMPLEX(vectorA, vectorB, threshold) \
 for (size_t idx{0U}; idx < vectorA.size(); ++idx) \
@@ -18,7 +19,7 @@ for (size_t idx{0U}; idx < vectorA.size(); ++idx) \
 }
 
 [[maybe_unused]]
-static void printVector(std::vector<T32fc> vector) {
+static void printVector(std::vector<cfloat32_t> vector) {
     for (size_t idx = 0; idx < vector.size(); ++idx) {
         std::cout << vector[idx].re << " " << vector[idx].im << std::endl;
     }

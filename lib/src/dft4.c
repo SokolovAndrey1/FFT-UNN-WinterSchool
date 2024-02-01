@@ -1,22 +1,22 @@
 #include "dft.h"
 
-void dft4Fwd(const T32fc *x, T32fc *y)
+extern void dft4Fwd(const cfloat32_t *pSrc, cfloat32_t *pDst)
 {
-    T32fc t[4];
-    t[0].re = x[0].re + x[2].re;
-    t[0].im = x[0].im + x[2].im;
-    t[1].re = x[0].re - x[2].re;
-    t[1].im = x[0].im - x[2].im;
-    t[2].re = x[1].re + x[3].re;
-    t[2].im = x[1].im + x[3].im;
-    t[3].re = x[1].re - x[3].re;
-    t[3].im = x[1].im - x[3].im;
-    y[0].re = t[0].re + t[2].re;
-    y[0].im = t[0].im + t[2].im;
-    y[1].re = t[1].re + t[3].im;
-    y[1].im = t[1].im - t[3].re;
-    y[2].re = t[0].re + t[2].re;
-    y[2].im = t[0].im - t[2].im;
-    y[3].re = t[1].re - t[3].im;
-    y[3].im = t[1].im + t[3].re;
+    cfloat32_t tmpDst[4];
+    tmpDst[0].re = pSrc[0].re   + pSrc[2].re;
+    tmpDst[0].im = pSrc[0].im   + pSrc[2].im;
+    tmpDst[1].re = pSrc[0].re   - pSrc[2].re;
+    tmpDst[1].im = pSrc[0].im   - pSrc[2].im;
+    tmpDst[2].re = pSrc[1].re   + pSrc[3].re;
+    tmpDst[2].im = pSrc[1].im   + pSrc[3].im;
+    tmpDst[3].re = pSrc[1].re   - pSrc[3].re;
+    tmpDst[3].im = pSrc[1].im   - pSrc[3].im;
+    pDst[0].re   = tmpDst[0].re + tmpDst[2].re;
+    pDst[0].im   = tmpDst[0].im + tmpDst[2].im;
+    pDst[1].re   = tmpDst[1].re + tmpDst[3].im;
+    pDst[1].im   = tmpDst[1].im - tmpDst[3].re;
+    pDst[2].re   = tmpDst[0].re - tmpDst[2].re;
+    pDst[2].im   = tmpDst[0].im - tmpDst[2].im;
+    pDst[3].re   = tmpDst[1].re - tmpDst[3].im;
+    pDst[3].im   = tmpDst[1].im + tmpDst[3].re;
 }
