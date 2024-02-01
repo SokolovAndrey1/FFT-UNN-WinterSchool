@@ -1,8 +1,6 @@
 #include "dft.h"
 
-void dft16Fwd(const T32fc *x, T32fc *y)
+extern void dft16Fwd(const cfloat32_t *pSrc, cfloat32_t *pDst)
 {
-    (void)x;
-    (void)y;
-    // TODO
+    refDftFwd(pSrc, pDst, 16);
 }

@@ -32,7 +32,6 @@ endif()
 #
 add_obj_lib("dft2" CommonConfiguration)
 add_obj_lib("dft4" CommonConfiguration)
-add_obj_lib("dft6" CommonConfiguration)
 add_obj_lib("dft8" CommonConfiguration)
 add_obj_lib("dft16" CommonConfiguration)
 add_obj_lib("dft32" CustomConfiguration)

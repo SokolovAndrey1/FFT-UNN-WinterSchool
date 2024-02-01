@@ -1,9 +1,9 @@
 #include "dft.h"
 
-void dft2Fwd(const T32fc *x, T32fc *y)
+extern void dft2Fwd(const cfloat32_t *pSrc, cfloat32_t *pDst)
 {
-    y[1].re = x[0].re - x[1].re;
-    y[1].im = x[0].im - x[1].im;
-    y[0].re = x[0].re + x[1].re;
-    y[0].im = x[0].im + x[1].im;
+    pDst[1].re = pSrc[0].re - pSrc[1].re;
+    pDst[1].im = pSrc[0].im - pSrc[1].im;
+    pDst[0].re = pSrc[0].re + pSrc[1].re;
+    pDst[0].im = pSrc[0].im + pSrc[1].im;
 }

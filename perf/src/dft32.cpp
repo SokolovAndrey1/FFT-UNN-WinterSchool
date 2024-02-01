@@ -10,8 +10,8 @@ int main() {
                       minCycles = std::numeric_limits<uint64_t>::max(),
                       diff;
 
-    T32fc src[length];
-    T32fc dst[length];
+    cfloat32_t src[length];
+    cfloat32_t dst[length];
 
     prepareData(src, length);
 
