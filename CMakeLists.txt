@@ -8,7 +8,6 @@ set(CMAKE_VERBOSE_MAKEFILE ON)
 
 option(ENABLE_TEST "Build test" OFF)
 option(ENABLE_BENCH "Build benchmarks" ON)
-option(ENABLE_EXAMPLES "Build examples" ON)
 option(TARGET_ARCH "Target architecture" RISCV_GENERIC)
 option(BUILD_STATIC "Build static" ON)
 option(USE_OPENMP "Build with -fopenmp" ON)
@@ -20,13 +19,6 @@ include(cmake/common_configuration.cmake)
 # Build library
 #
 add_subdirectory("${CMAKE_SOURCE_DIR}/lib")
-
-#
-# Build examples
-#
-if(ENABLE_EXAMPLES)
-    add_subdirectory("${CMAKE_SOURCE_DIR}/examples")
-endif()
 
 #
 # Build tests
