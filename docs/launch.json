@@ -8,14 +8,14 @@
             "name": "RISC-V QEMU GDB",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/FFT-UNN-WinterSchool/_build/perf/dft8_perf",
+            "program": "${workspaceFolder}/FFT-UNN-WinterSchool/_build/perf/dft_perf",
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/FFT-UNN-WinterSchool/",
             "environment": [],
             "externalConsole": true,
             "MIMode": "gdb",
             "miDebuggerPath": "${workspaceFolder}/Xuantie-900-gcc-linux-5.10.4-glibc-x86_64-V2.2.6/bin/riscv64-unknown-linux-gnu-gdb",
-            "miDebuggerServerAddress": ":1234",
+            "miDebuggerServerAddress": "localhost:1234",
             "stopAtConnect": true,
             "setupCommands": [
                 {

@@ -68,17 +68,6 @@ qemu-riscv64: Could not open '/lib/ld-linux-riscv64-lp64d.so.1': No such file or
 ``\
 необходимо сконфигурировать проект с `-DBUILD_STATIC=ON` или добавить ключ запуска `-L <path-to-toolchain>/sysroot/`
 
-## Использование GDB и RISC-V Qemu
+## Отладка кода на RISC-V
 
-1) Запустить QEMU \
-``
-qemu-riscv64 -g 1234 -cpu c910v ./_build/examples/dft4_example
-``
-2) Запустить cross GDB\
-``
-riscv64-unknown-linux-gnu-gdb ./_build/examples/dft4_example
-``
-3) В консоли GDB подключиться к QEMU \
-``
-target remote :1234
-``
+[Краткая инструкция](docs/How2Debug.md)
