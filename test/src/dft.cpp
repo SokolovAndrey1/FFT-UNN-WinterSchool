@@ -1,12 +1,5 @@
 #include "test_common.hpp"
 
-// Change to 1 to test function
-#define DFT2_IMPLEMENTED 1
-#define DFT4_IMPLEMENTED 0
-#define DFT8_IMPLEMENTED 0
-#define DFT16_IMPLEMENTED 0
-#define DFT32_IMPLEMENTED 0
-
 #define TEST_2PI (float)0x1.921fb54442d18p+2
 
 class Dft : public ::testing::Test
@@ -43,7 +36,6 @@ public:
     }
 };
 
-#if DFT2_IMPLEMENTED == 1
 TEST_F(Dft, test_dft2)
 {
     static constexpr int length = 2;
@@ -57,9 +49,7 @@ TEST_F(Dft, test_dft2)
 
     EXPECT_NEAR_VECTOR_VECTOR_COMPLEX(result, reference, threshold);
 }
-#endif
 
-#if DFT4_IMPLEMENTED == 1
 TEST_F(Dft, test_dft4)
 {
     static constexpr int length = 4;
@@ -73,9 +63,7 @@ TEST_F(Dft, test_dft4)
 
     EXPECT_NEAR_VECTOR_VECTOR_COMPLEX(result, reference, threshold);
 }
-#endif
 
-#if DFT8_IMPLEMENTED == 1
 TEST_F(Dft, test_dft8)
 {
     static constexpr int length = 8;
@@ -89,9 +77,7 @@ TEST_F(Dft, test_dft8)
 
     EXPECT_NEAR_VECTOR_VECTOR_COMPLEX(result, reference, threshold);
 }
-#endif
 
-#if DFT16_IMPLEMENTED == 1
 TEST_F(Dft, test_dft16)
 {
     static constexpr int length = 16;
@@ -104,9 +90,7 @@ TEST_F(Dft, test_dft16)
 
     EXPECT_NEAR_VECTOR_VECTOR_COMPLEX(result, reference, threshold);
 }
-#endif
 
-#if DFT32_IMPLEMENTED == 1
 TEST_F(Dft, test_dft32)
 {
     static constexpr int length = 32;
@@ -119,4 +103,3 @@ TEST_F(Dft, test_dft32)
 
     EXPECT_NEAR_VECTOR_VECTOR_COMPLEX(result, reference, threshold);
 }
-#endif
