@@ -60,8 +60,9 @@
 ## Пример запуска с помощью QEMU
 
 ``
-qemu-riscv64 -cpu c910v ./_build/examples/dft4_example
+qemu-riscv64 -cpu c910v ./_build/test/fft_test
 ``
+где `-cpu c910v` нужен для поддержки RVV
 
 В случае ошибки:\
 ``
