@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.24)
+cmake_minimum_required(VERSION 3.19)
 
 project(fft_opt VERSION 0.0.1 LANGUAGES C CXX)
 
